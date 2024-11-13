@@ -9,33 +9,32 @@
       "tag": "item_list",
       "patterns": ["What can I buy?", "Show me the items for sale", "List of items"],
       "responses": [
-        "Here are the items available:\n1. Coffee - $5\n2. Tea - $3\n3. Cookies - $2\n4. Sandwich - $6"
+        "Here are the items available:\n1. Wireless Bluetooth Earbuds - $29.99\n2. Smartphone Stand with Adjustable Angle - $14.49\n3. Portable Power Bank 10000mAh - $22.95\n4. 4K Ultra HD Streaming Stick - $39.99\n5. Noise-Cancelling Over-Ear Headphones - $59.99\n\nType the item name or number to add it to your cart."
       ]
     },
     {
-      "tag": "order",
-      "patterns": ["I want to order", "Can I buy", "I would like to purchase", "Order coffee", "Order tea", "Order cookies", "Order sandwich", "Buy coffee", "Buy tea", "Buy cookies", "Buy sandwich"],
-      "responses": ["Please let me know the item and quantity."]
+      "tag": "order_item",
+      "patterns": [
+        "I want to order", "Can I buy", "Add item", "Order item", 
+        "I would like to purchase", "Add item number", "Order item number",
+        "Buy item number", "Add 2 Noise-Cancelling Over-Ear Headphones"
+      ],
+      "responses": ["Please specify the item name or number you'd like to add."]
+    },
+    {
+      "tag": "display_cart",
+      "patterns": ["Show my cart", "Display my cart", "What have I ordered?", "Cart summary", "Display my orders"],
+      "responses": ["Here is a summary of your current cart:"]
+    },
+    {
+      "tag": "finalize_order",
+      "patterns": ["I'm done", "Finished ordering", "Take me to my cart", "Checkout", "Place my order", "Finalize order"],
+      "responses": ["Here is your final order summary:"]
     },
     {
       "tag": "order_status",
-      "patterns": ["Where is my order?", "Order status", "Track my order", "Order update"],
-      "responses": ["Please provide your order ID to check the status.", "Can you share your order number for tracking?"]
-    },
-    {
-      "tag": "return_policy",
-      "patterns": ["What is your return policy?", "Can I return an item?", "How do returns work?"],
-      "responses": ["You can return most items within 30 days of receipt.", "Our return policy allows returns within 30 days."]
-    },
-    {
-      "tag": "payment_methods",
-      "patterns": ["What payment methods do you accept?", "Can I pay with credit card?", "Do you take PayPal?"],
-      "responses": ["We accept VISA, Mastercard, and PayPal.", "You can use credit cards, debit cards, and PayPal for purchases."]
-    },
-    {
-      "tag": "shipping_info",
-      "patterns": ["How long does shipping take?", "When will my order arrive?", "Shipping information"],
-      "responses": ["Standard shipping takes 3-5 business days.", "You can expect delivery in 3-5 business days."]
+      "patterns": ["Where is my order?", "Order status", "Track my order", "Order update", "Check my order"],
+      "responses": ["Please provide your order ID to check the status."]
     },
     {
       "tag": "goodbye",

@@ -1,5 +1,5 @@
 from tkinter import *
-from chat import get_response, bot_name
+from chatbot import get_response, bot_name
 
 BG_GRAY = "#ABB2B9"
 BG_COLOR = "#17202A"
@@ -12,7 +12,7 @@ class ChatApplication:
     
     def __init__(self):
         self.window = Tk()
-        self.user_name = None  # Store the user's name
+        self.user_name = None
         self._setup_main_window()
 
     def run(self):
@@ -25,12 +25,8 @@ class ChatApplication:
         
         # head label
         head_label = Label(self.window, bg=BG_COLOR, fg=TEXT_COLOR,
-                           text="Welcome", font=FONT_BOLD, pady=10)
+                           text="Welcome to ShopBot", font=FONT_BOLD, pady=10)
         head_label.place(relwidth=1)
-        
-        # tiny divider
-        line = Label(self.window, width=450, bg=BG_GRAY)
-        line.place(relwidth=1, rely=0.07, relheight=0.012)
         
         # text widget
         self.text_widget = Text(self.window, width=20, height=2, bg=BG_COLOR, fg=TEXT_COLOR,
@@ -57,23 +53,14 @@ class ChatApplication:
         send_button = Button(bottom_label, text="Send", font=FONT_BOLD, width=20, bg=BG_GRAY,
                              command=lambda: self._on_enter_pressed(None))
         send_button.place(relx=0.77, rely=0.008, relheight=0.06, relwidth=0.22)
-     
+
     def _on_enter_pressed(self, event):
+        """Process user input when Enter key is pressed."""
         msg = self.msg_entry.get().strip()
         self._insert_message(msg, "You")
-        
+
     def _insert_message(self, msg, sender):
         if not msg:
-            return
-        
-        # Check if the user's name is set
-        if self.user_name is None:
-            self.user_name = msg.capitalize()
-            welcome_msg = f"Nice to meet you, {self.user_name}! Would you like to buy something? Here are some items available:\n1. Coffee - $5\n2. Tea - $3\n3. Cookies - $2\n4. Sandwich - $6\n\nPlease type the item name to order or ask any questions."
-            self.text_widget.configure(state=NORMAL)
-            self.text_widget.insert(END, f"Bot: {welcome_msg}\n\n")
-            self.text_widget.configure(state=DISABLED)
-            self.msg_entry.delete(0, END)
             return
 
         # Display user message
@@ -82,7 +69,7 @@ class ChatApplication:
         self.text_widget.insert(END, msg1)
         self.text_widget.configure(state=DISABLED)
 
-        # Get bot response
+        # Get chatbot response
         response = get_response(msg.lower())  # Convert input to lowercase for case insensitivity
         msg2 = f"{bot_name}: {response}\n\n"
         self.text_widget.configure(state=NORMAL)
@@ -94,5 +81,6 @@ class ChatApplication:
         self.msg_entry.delete(0, END)
 
 if __name__ == "__main__":
+    print("Starting Chatbot Application...")
     app = ChatApplication()
     app.run()
