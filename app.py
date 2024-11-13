@@ -12,8 +12,9 @@ class ChatApplication:
     
     def __init__(self):
         self.window = Tk()
+        self.user_name = None  # Store the user's name
         self._setup_main_window()
-        
+
     def run(self):
         self.window.mainloop()
         
@@ -58,27 +59,40 @@ class ChatApplication:
         send_button.place(relx=0.77, rely=0.008, relheight=0.06, relwidth=0.22)
      
     def _on_enter_pressed(self, event):
-        msg = self.msg_entry.get()
+        msg = self.msg_entry.get().strip()
         self._insert_message(msg, "You")
         
     def _insert_message(self, msg, sender):
         if not msg:
             return
         
-        self.msg_entry.delete(0, END)
+        # Check if the user's name is set
+        if self.user_name is None:
+            self.user_name = msg.capitalize()
+            welcome_msg = f"Nice to meet you, {self.user_name}! Would you like to buy something? Here are some items available:\n1. Coffee - $5\n2. Tea - $3\n3. Cookies - $2\n4. Sandwich - $6\n\nPlease type the item name to order or ask any questions."
+            self.text_widget.configure(state=NORMAL)
+            self.text_widget.insert(END, f"Bot: {welcome_msg}\n\n")
+            self.text_widget.configure(state=DISABLED)
+            self.msg_entry.delete(0, END)
+            return
+
+        # Display user message
         msg1 = f"{sender}: {msg}\n\n"
         self.text_widget.configure(state=NORMAL)
         self.text_widget.insert(END, msg1)
         self.text_widget.configure(state=DISABLED)
-        
-        msg2 = f"{bot_name}: {get_response(msg)}\n\n"
+
+        # Get bot response
+        response = get_response(msg.lower())  # Convert input to lowercase for case insensitivity
+        msg2 = f"{bot_name}: {response}\n\n"
         self.text_widget.configure(state=NORMAL)
         self.text_widget.insert(END, msg2)
         self.text_widget.configure(state=DISABLED)
         
+        # Scroll to the end of the chat
         self.text_widget.see(END)
-             
-        
+        self.msg_entry.delete(0, END)
+
 if __name__ == "__main__":
     app = ChatApplication()
     app.run()

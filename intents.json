@@ -2,86 +2,45 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": [
-        "Hi",
-        "Hey",
-        "How are you",
-        "Is anyone there?",
-        "Hello",
-        "Good day"
-      ],
+      "patterns": ["Hi", "Hello", "Is anyone there?", "Hey"],
+      "responses": ["Hello! How can I assist you today?", "Hi there! Would you like to buy something?"]
+    },
+    {
+      "tag": "item_list",
+      "patterns": ["What can I buy?", "Show me the items for sale", "List of items"],
       "responses": [
-        "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
+        "Here are the items available:\n1. Coffee - $5\n2. Tea - $3\n3. Cookies - $2\n4. Sandwich - $6"
       ]
+    },
+    {
+      "tag": "order",
+      "patterns": ["I want to order", "Can I buy", "I would like to purchase", "Order coffee", "Order tea", "Order cookies", "Order sandwich", "Buy coffee", "Buy tea", "Buy cookies", "Buy sandwich"],
+      "responses": ["Please let me know the item and quantity."]
+    },
+    {
+      "tag": "order_status",
+      "patterns": ["Where is my order?", "Order status", "Track my order", "Order update"],
+      "responses": ["Please provide your order ID to check the status.", "Can you share your order number for tracking?"]
+    },
+    {
+      "tag": "return_policy",
+      "patterns": ["What is your return policy?", "Can I return an item?", "How do returns work?"],
+      "responses": ["You can return most items within 30 days of receipt.", "Our return policy allows returns within 30 days."]
+    },
+    {
+      "tag": "payment_methods",
+      "patterns": ["What payment methods do you accept?", "Can I pay with credit card?", "Do you take PayPal?"],
+      "responses": ["We accept VISA, Mastercard, and PayPal.", "You can use credit cards, debit cards, and PayPal for purchases."]
+    },
+    {
+      "tag": "shipping_info",
+      "patterns": ["How long does shipping take?", "When will my order arrive?", "Shipping information"],
+      "responses": ["Standard shipping takes 3-5 business days.", "You can expect delivery in 3-5 business days."]
     },
     {
       "tag": "goodbye",
       "patterns": ["Bye", "See you later", "Goodbye"],
-      "responses": [
-        "See you later, thanks for visiting",
-        "Have a nice day",
-        "Bye! Come back again soon."
-      ]
-    },
-    {
-      "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
-      "responses": ["Happy to help!", "Any time!", "My pleasure"]
-    },
-    {
-      "tag": "items",
-      "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?"
-      ],
-      "responses": [
-        "We sell coffee and tea",
-        "We have coffee and tea"
-      ]
-    },
-    {
-      "tag": "payments",
-      "patterns": [
-        "Do you take credit cards?",
-        "Do you accept Mastercard?",
-        "Can I pay with Paypal?",
-        "Are you cash only?"
-      ],
-      "responses": [
-        "We accept VISA, Mastercard and Paytm",
-        "We accept most major credit cards, and Paytm"
-      ]
-    },
-    {
-      "tag": "delivery",
-      "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
-      ],
-      "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
-      ]
-    },
-    {
-      "tag": "pdm",
-      "patterns": [
-        "where is pdm",
-        "about pdm",
-        "placements",
-        "contact details"
-      ],
-      "responses": [
-        "PDM Rd, Sector 3A, Bahadurgarh, Haryana 124507.",
-        "The PDM University has been established by the Haryana State Legislature under the Haryana Private Universities Act No. 32 of 2006, as amended by the Haryana Private Universities (Amendment), Act, 2015 (Haryana Act No.1 of 2016) and notified in the Haryana Govt. Gazette (Extra) Notification No. Leg.2/2016, dated 14th January, 2016.",
-        "Welcome to Training & Placement Cell at PDM University. PDM is a world class institution of Science & Technology. It has acquired this status through meritorious and innovative students, high quality faculty, and contribution by distinguished alumni. Our alumni have excelled in every field. PDM offers a large pool of talent to recruit from, with a wide range of specializations at UG and PG levels. PDM offers a large pool of talent to recruit from, with a wide range of specializations at UG and PG levels.",
-        "ADDRESS:  Sector 3A Bahadurgarh, Haryana 124507 || PHONE:     1800-180-6600 (Toll Free) || Whatsapp: +91-1276221700 || EMAIL:       info@pdm.ac.in || Nearest Metro Station:  Bahadurgarh City Metro Station [Green Line]"
-      ]
+      "responses": ["Goodbye! Thank you for visiting.", "See you soon! Let us know if you need anything else."]
     }
   ]
 }
