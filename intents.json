@@ -7,7 +7,7 @@
     },
     {
       "tag": "item_list",
-      "patterns": ["What can I buy?", "Show me the items for sale", "List of items"],
+      "patterns": ["What can I buy?", "Show me the items for sale", "List of items","yes", "show items", "what can i buy"],
       "responses": [
         "Here are the items available:\n1. Wireless Bluetooth Earbuds - $29.99\n2. Smartphone Stand with Adjustable Angle - $14.49\n3. Portable Power Bank 10000mAh - $22.95\n4. 4K Ultra HD Streaming Stick - $39.99\n5. Noise-Cancelling Over-Ear Headphones - $59.99\n\nType the item name or number to add it to your cart."
       ]
